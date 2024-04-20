@@ -3,11 +3,11 @@ import { ColorRing } from "react-loader-spinner"
 
 const Loader = () => {
   return (
-    <div style={{ display:"flex" , justifyContent:"center" , alignItems:"center" }} >
+    <div style={{ display:"flex" , justifyContent:"center" , alignItems:"center" ,  height:"100vh" }} >
       <ColorRing
         visible={true}
-        height="80"
-        width="80"
+        height="100"
+        width="100"
         ariaLabel="color-ring-loading"
         wrapperStyle={{}}
         wrapperClass="color-ring-wrapper"

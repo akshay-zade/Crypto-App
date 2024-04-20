@@ -1,0 +1,15 @@
+.ex-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 8rem;
+}
+.name {
+    width: 5rem;
+}
+.price {
+    width: 5rem;
+}
+.rank {
+    width: 5rem;
+}
