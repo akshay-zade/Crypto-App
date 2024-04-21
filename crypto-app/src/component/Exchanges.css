@@ -13,3 +13,16 @@
 .rank {
     width: 5rem;
 }
+
+.btns button {
+    background-color: orange;
+    border: none;
+    margin-left: 30px;
+    height: 2rem ;
+    width: 5rem;
+    border-radius: 10px;
+    margin-top: 7rem;
+}
+.btns {
+    margin-left: 14rem
+}

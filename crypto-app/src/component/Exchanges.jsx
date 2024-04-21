@@ -3,7 +3,7 @@ import Header from './Header'
 import axios from 'axios'
 import { baseUrl } from './baseUrl'
 import Loader from './Loader'
-import coin from '../coin.png'
+// import coin from '../coin.png'
 import './Exchanges.css'
 
 const Exchanges = () => {
@@ -31,7 +31,7 @@ const Exchanges = () => {
     {
       exchanges.map((item,i)=>{
         return( 
-          <div className='ex-card' >
+          <div key={i} className='ex-card' >
           <div className='image' >
             <img height={"80px"} src={item.image} alt="" />
           </div>
