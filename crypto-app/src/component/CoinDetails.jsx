@@ -4,7 +4,6 @@ import Loader from "./Loader";
 import { baseUrl } from "./baseUrl";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import coinImg from "../coin.png";
 import './coinDetails.css'
 import {BiSolidUpArrow,BiSolidDownArrow} from 'react-icons/bi'
 import { IoPulseOutline } from "react-icons/io5"
@@ -30,7 +29,7 @@ const CoinDetails = () => {
       }
     };
     getCoin();
-  }, []);
+  });
   return (
     <>
       {loading ? (
