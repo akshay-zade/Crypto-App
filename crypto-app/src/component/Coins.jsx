@@ -11,6 +11,7 @@ const Coins = () => {
   const[loading , setLoading] = useState(true);
   const[coins , setCoins] = useState([]);
   const[currency , setCurrency] = useState('inr')
+  const [search, setSearch]=useState('')
 
   const currencySymbol = currency === 'inr' ? '₹' : '$'
 
@@ -29,12 +30,25 @@ const Coins = () => {
     {
       loading? <Loader /> : <>
       <Header />
+      <div className="search-bar">
+      <input type="text" 
+            placeholder='Search Your Coins ' 
+            onChange={(e)=>setSearch(e.target.value)}
+            style={{height:"2rem" , width:"20rem" , position:"absolute" , top:"1%" , left:"35%"}}
+            />
+      </div>
       <div className='btns'>
         <button onClick={()=> setCurrency('inr') } >INR</button>
         <button onClick={()=> setCurrency('usd') } >USD</button>
       </div>
        {
-        coins.map((coindata , i)=> {
+        coins.filter((data)=>{
+          if(data===""){
+           return data
+          } else if(data.name.toLowerCase().includes(search.toLowerCase())){
+          return data
+          }
+        }).map((coindata , i)=> {
            return(
             
               <CoinCard coindata={coindata}  i={i} id={coindata.id}  currencySymbol={currencySymbol} />

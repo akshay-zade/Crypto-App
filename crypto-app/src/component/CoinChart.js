@@ -25,7 +25,7 @@ ChartJS.register(
   Legend
 );
 
-const CoinChart = () => {
+const CoinChart = ({currency}) => {
 
     const{id} = useParams()
     const[chartData , setChartData] =useState([])
@@ -33,7 +33,7 @@ const CoinChart = () => {
 
 const coinChartData = async() => {
     try {
-        const{data} = await axios.get(`${baseUrl}/coins/${id}/market_chart?vs_currency=inr&days=${days}`)
+        const{data} = await axios.get(`${baseUrl}/coins/${id}/market_chart?vs_currency=${currency}&days=${days}`)
         setChartData(data.prices)
           // console.log(data.prices)
     } catch (error) {
@@ -42,7 +42,7 @@ const coinChartData = async() => {
 }
 useEffect(()=>{
     coinChartData()
-},[])
+},[currency,id,days])
 
 const myData={
   labels: chartData.map((value)=>{
@@ -54,7 +54,7 @@ const myData={
   }),
   datasets:[
     {
-      labels: `Price in past Days ${days} `,
+      label: `Price in past Days ${days} in ${currency} `,
       data : chartData.map((value)=> value[1]),
       borderColor : 'orange',
       borderWidth : '3'
